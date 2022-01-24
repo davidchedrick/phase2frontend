@@ -2,7 +2,7 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import { Container } from 'react-bootstrap';
-import GameArea from './GameArea';
+import CatArea from './CatArea';
 import Header from './Header';
 import Contact from './Contact';
 
@@ -16,7 +16,7 @@ function App() {
             <Header />
             <Switch>
                 <Route exact path="/">
-                    <GameArea  />
+                    <CatArea  />
                 </Route>
                 <Route>
                     <Contact path="/contact" />
