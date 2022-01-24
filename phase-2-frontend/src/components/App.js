@@ -38,13 +38,13 @@ function App() {
         .then(setFetchRequest(!fetchRequest));
     }
 
-    function handleLogIn(){
-        isLoggedIn(loggedIn)
-    }
+   function handleLogIn() {
+       isLoggedIn(!loggedIn)
+   }
 
     return (
         <div  className='App'>
-            {isLoggedIn ? <Header /> : null }
+           {loggedIn ? <Header /> : null }
             <Switch>
 
                 
@@ -62,7 +62,7 @@ function App() {
                 </Route> 
 
                 <Route exact path="/">
-                    <Home setLogIn={handleLogIn} />
+                    <Home setLogIn={handleLogIn}/>
                 </Route>
 
                 
