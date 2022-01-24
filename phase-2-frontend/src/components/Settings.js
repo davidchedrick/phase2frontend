@@ -1,5 +1,5 @@
 
-function Contact() {
+function Settings() {
 
     return (
         <>catcatcat</>
@@ -7,4 +7,4 @@ function Contact() {
 
 }
 
-export default Contact;
+export default Settings;

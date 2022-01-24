@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 
-function GameCards({ game }) {
+function GameCards({ cat }) {
 
-    const { image, title, description } = game
-    console.log("game: ", game);
+    const { image, title, description } = cat
+    
 
     return (
         
