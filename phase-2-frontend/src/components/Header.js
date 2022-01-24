@@ -7,7 +7,7 @@ function Header() {
     return(
         <HeaderDiv>
             <Navbar expand="md">
-                <Navbar.Brand href="/">Bodhi Cat Games</Navbar.Brand>
+                <Navbar.Brand href="/">BodhiCat's Cutie Cats</Navbar.Brand>
                 <Navbar.Toggle/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="justify-content-end">
@@ -25,8 +25,9 @@ const HeaderDiv = styled.div`
    
    height: 100px;
    border: 2px solid;
-   box-shadow: 12px 12px 18px rgba(0.7, 0.7, 0.7, 0.7);
+   box-shadow: 5px 3px 30px rgba(0, 0, 0, 0.75), -5px -3px 30px rgba(0, 0, 0, 0.75);
    padding: 10px;
+   margin: 10px; 
 
     .navbar-brand, .navbar-nav .nav-link {
         color: #111;
@@ -37,7 +38,4 @@ const HeaderDiv = styled.div`
         }
     
 `
-
-
-
 export default Header;

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import CatCards from "./CatCards";
-import FormPage from "./FormPage";
+import { useState, useEffect } from "react";
+
 import { Container } from "react-bootstrap";
 
+import CatCards from "./CatCards";
+import FormPage from "./FormPage";
 
 
 function GameArea() {
@@ -28,7 +29,7 @@ function GameArea() {
             },
             body: JSON.stringify(newCat)
         })
-        .then(setFetchRequest(!fetchRequest))
+        .then(setFetchRequest(!fetchRequest));
     }
 
     const gameList = cats.map(game => (
