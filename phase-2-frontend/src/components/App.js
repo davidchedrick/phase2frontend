@@ -15,6 +15,7 @@ function App() {
 
     const [cats, setCats] = useState([]);
     const [fetchRequest, setFetchRequest] = useState(false);
+    const [loggedIn, isLoggedIn] = useState(false)
 
     useEffect(() => {
         fetchCats();
@@ -37,9 +38,13 @@ function App() {
         .then(setFetchRequest(!fetchRequest));
     }
 
+    function handleLogIn(){
+        isLoggedIn(loggedIn)
+    }
+
     return (
         <div  className='App'>
-            <Header />
+            {isLoggedIn ? <Header /> : null }
             <Switch>
 
                 
@@ -57,7 +62,7 @@ function App() {
                 </Route> 
 
                 <Route exact path="/">
-                    <Home  />
+                    <Home setLogIn={handleLogIn} />
                 </Route>
 
                 

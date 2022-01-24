@@ -6,12 +6,11 @@ function Header() {
 
     return(
         <HeaderDiv>
-            <h1>
-              <Link to="/cats">BodhiCat's Cutie Cats</Link>   
-              
-            </h1>
-            
-            <nav>
+            <nav className="navbar navbar-light ">
+           
+            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="BodiCat" />
+                <Link to="/cats" className="navbar-brand">BodhiCat's Cutie Cats</Link>   
+       
                 <NavLink exact  to="/add">
                     Add
                 </NavLink>
@@ -39,9 +38,5 @@ const HeaderDiv = styled.div`
    margin: 10px; 
    background-color: #F3F3F3
    
-  
-
-  
-    
 `
 export default Header;
