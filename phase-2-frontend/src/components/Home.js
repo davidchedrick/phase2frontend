@@ -8,7 +8,7 @@ function Home({ setLogIn }) {
         
         <LogoDiv>
         <div class=" m-5 ">
-            <LogoTitle className="display-4 justify-content-center">
+            <LogoTitle className="display-4 justify-content-center m-4 cat-font">
                 BodhiCat's Cutie Cats
             </LogoTitle>
 
@@ -40,7 +40,7 @@ const LogoDiv = styled.div`
    
 `
 const LogoTitle = styled.h1`
- 
+  
    border-radius: 360px;
    box-shadow: 5px 3px 30px rgba(0, 0, 0, 0.75), -5px -3px 30px rgba(0, 0, 0, 0.75);
    
