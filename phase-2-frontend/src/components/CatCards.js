@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import Comments from "./Comments";
 import styled from "styled-components";
-import { Container, Card, Button, Row, Col } from "react-bootstrap";
+import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react-bootstrap";
+import CommentBox from "./CommentBox";
 
-function GameCards({ cat }) {
+function CatCards({ cat }) {
+   
 
-    const { image, title, description } = cat
+    const [isLiked, setIsLiked] = useState(false)
+    const { image, title, description, comments } = cat
+    
+    const commentArea = comments.map(commentList => 
+        
+        (
+            <Comments 
+                key={commentList.id} 
+                commentList={commentList}
+            /> 
+        )
+    )
+
+    function handleComment() {
+
+    }
     
 
     return (
@@ -17,13 +35,27 @@ function GameCards({ cat }) {
                         <Card.Img variant="top" src={image} alt={title} />
                         <Card.Body>
                             <Card.Title>{title}</Card.Title>
+                            
                             <Card.Text>{description}</Card.Text>
-                            {/* <Button>
-                                ★
-                            </Button> */}
-                            <Button variant="dark" >
-                                ☆
-                            </Button>
+                            <hr/>
+                            <Card.Text>Comments:</Card.Text>
+                            
+                            <ListGroup >
+                                {commentArea}
+                            </ListGroup>
+                            <hr/>
+                            <ButtonGroup className="me-2">
+                                <Button 
+                                    variant="dark"
+                                    onClick={<CommentBox cat={cat}/>}
+                                >💬</Button>
+                            </ButtonGroup>  
+                            <ButtonGroup className="me-2"> 
+                                <Button variant="dark" onClick={() => setIsLiked(!isLiked)} >
+                                    { isLiked ? "❤️" : "🤍" } 
+                                </Button>
+                            </ButtonGroup> 
+
                         </Card.Body>
                     </Card>
                     </Div>
@@ -44,4 +76,4 @@ const Div = styled.div`
 `
 
 
-export default GameCards
+export default CatCards

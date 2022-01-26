@@ -6,11 +6,15 @@ import CatCards from "./CatCards";
 
 
 
-function GameArea({ cats }) {
+function CatArea({ cats, handleComment }) {
 
 
     const catList = [...cats].reverse().map(cat => (
-      <CatCards key ={cat.id} cat={cat} />  
+      <CatCards 
+        key ={cat.id} 
+        cat={cat} 
+        handleComment={handleComment}
+      />  
     ))
 
     return (
@@ -33,4 +37,4 @@ function GameArea({ cats }) {
 
 
  
-export default GameArea;
+export default CatArea;

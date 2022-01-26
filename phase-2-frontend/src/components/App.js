@@ -17,18 +17,20 @@ function App() {
     const [fetchRequest, setFetchRequest] = useState(false);
     const [loggedIn, isLoggedIn] = useState(false)
 
+    const BASE_URL = "http://localhost:3000/cats"
+
     useEffect(() => {
         fetchCats();
     }, [fetchRequest]);
 
     function fetchCats() {
-        fetch("http://localhost:3000/cats")
+        fetch(BASE_URL)
           .then(resp => resp.json())
           .then(cats => setCats(cats));
     }
 
     function handleAddCat(newCat) {
-        fetch("http://localhost:3000/cats", {
+        fetch(BASE_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -36,6 +38,17 @@ function App() {
             body: JSON.stringify(newCat)
         })
         .then(setFetchRequest(!fetchRequest));
+    }
+
+    function handleComment(newComment, cat) {
+        fetch(`BASE_URL + /${cat.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newComment)
+        })
+        .then(setFetchRequest(!fetchRequest))
     }
 
    function handleLogIn() {
@@ -50,11 +63,17 @@ function App() {
                 
 
                 <Route  path="/cats">
-                    <CatArea cats={cats} />
+                    <CatArea 
+                        cats={cats} 
+                        handleComment={handleComment}
+                    />
                 </Route>
 
                 <Route path="/add">
-                    <FormPage   cats={cats} handleAddCat={handleAddCat} />
+                    <FormPage   
+                        cats={cats} 
+                        handleAddCat={handleAddCat} 
+                    />
                 </Route>
 
                 <Route path="/settings">
