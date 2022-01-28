@@ -6,7 +6,7 @@ import CatCards from "./CatCards";
 
 // ,handleComment
 
-function CatArea({ cats, handleLikedCat  }) {
+function CatArea({ cats, handleLikedCat,handleDeleteCat  }) {
 
 
     const catList = [...cats].reverse().map(cat => (
@@ -14,6 +14,7 @@ function CatArea({ cats, handleLikedCat  }) {
         key ={cat.id} 
         cat={cat} 
         handleLikedCat={handleLikedCat}
+        handleDeleteCat={handleDeleteCat}
         // handleComment={handleComment}
       />  
     ))

@@ -40,8 +40,7 @@ function App() {
         .then(setFetchRequest(!fetchRequest));
     }
 
-    function handleLikedCat(cat){
-        console.log("catddd: ", cat);
+    function handleLikedCat(cat) {
         fetch(`http://localhost:3000/cats/${cat.id}`, {
             method: "PATCH",
             headers: {
@@ -52,6 +51,17 @@ function App() {
         .then(setFetchRequest(!fetchRequest))
 
     }
+
+    function handleDeleteCat(cat) {
+        fetch(`http://localhost:3000/cats/${cat.id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        .then(setFetchRequest(!fetchRequest))
+    }
+
     // function handleComment(newComment, cat) {
     //     console.log("newComment!!!!: ", newComment);
     //     fetch(`http://localhost:3000/cats/${cat.id}`, {
@@ -80,6 +90,7 @@ function App() {
                     <CatArea 
                         cats={cats} 
                         handleLikedCat={handleLikedCat}
+                        handleDeleteCat={handleDeleteCat}
                         // handleComment={handleComment}
                     />
                 </Route>
