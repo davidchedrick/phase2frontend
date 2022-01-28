@@ -8,7 +8,7 @@ function FormPage({ cats, handleAddCat }) {
         description: "",
         image: "",
         favorite: false,
-        comments: "",
+        comments: [],
     })
 
     function handleFormData(e) {

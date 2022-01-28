@@ -1,38 +1,45 @@
-import { useState } from "react";
+// import { useState } from "react";
 
+// , handleComment 
+function CommentBox({ cat}) {
 
-function CommentBox({ cat }) {
+    const { comments } = cat
+    console.log("cat||||: ", cat);
+    console.log("comments: ", comments);
+    
 
-    // const { comments } = cat
-
-    // const [CommentData, setCommentData] = useState({
-    //     comments: "",
+    // const [commentData, setCommentData] = useState({
+        
+    //     comments: [],
     // })
 
-    // function handleCommentData(e) {
+    // function handleChange(e) {
+        
     //     let targetName = e.target.name;
     //     let targetValue = e.target.value;
 
     //     setCommentData({
-    //         ...CommentData, [targetName]: targetValue
+    //         ...commentData, [targetName]: targetValue
     //     });
     // }
 
-    // function handleSubmit(e) {
+    // function handleSubmit(e, cat) {
+    //     console.log("cat????: ", cat);
+        
     //     e.preventDefault();
 
     //     let newId = comments.length + 1;
 
     //     const newComment ={
     //         id: newId,
-    //         title: CommentData.comments,
+    //         comments: commentData,
            
     //     }
 
-    //     handleComment(newComment);
+    //     handleComment(newComment, cat);
 
     //     setCommentData({
-    //         comments: ""
+    //         comments: []
             
     //     });
     // }
@@ -43,10 +50,15 @@ function CommentBox({ cat }) {
             <input 
                 type="text" 
                 placeholder="Comment" 
-                name="Comment"
+                name="comments"
                 className="input"
-                // onChange={handleCommentData}
-                // value={CommentData.comments}
+                // onChange={handleChange}
+                // value={commentData.comments}
+            />
+            <input 
+                type="submit" 
+                value="Submit"
+                className="input"
             />
         </form>
     )

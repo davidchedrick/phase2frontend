@@ -4,26 +4,31 @@ import styled from "styled-components";
 import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react-bootstrap";
 import CommentBox from "./CommentBox";
 
-function CatCards({ cat }) {
-   
+function CatCards({ cat, handleLikedCat }) {
+//    , handleComment
 
-    const [isLiked, setIsLiked] = useState(false)
-    const { image, title, description, comments } = cat
+    // const [isLiked, setIsLiked] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+    const { image, title, description, comments, id } = cat;
     
-    const commentArea = comments.map(commentList => 
+    // const commentArea = comments.map(commentList => 
         
-        (
-            <Comments 
-                key={commentList.id} 
-                commentList={commentList}
-            /> 
-        )
-    )
+    //     (
+    //         <Comments 
+    //             key={commentList.id} 
+    //             commentList={commentList}
+    //         /> 
+    //     )
+    // )
 
-    function handleComment() {
+   function handleClicked() {
+       setIsClicked(!isClicked)
+   }
 
-    }
-    
+//    function handleLikedClick(cat) {
+//         setIsLiked(!isLiked)
+//         handleLikedCat(cat)
+//     }
 
     return (
         
@@ -41,20 +46,26 @@ function CatCards({ cat }) {
                             <Card.Text>Comments:</Card.Text>
                             
                             <ListGroup >
-                                {commentArea}
+                                {/* {commentArea} */}
                             </ListGroup>
                             <hr/>
                             <ButtonGroup className="me-2">
                                 <Button 
                                     variant="dark"
-                                    onClick={<CommentBox cat={cat}/>}
+                                    onClick={() => handleClicked()}
                                 >💬</Button>
+                                
                             </ButtonGroup>  
                             <ButtonGroup className="me-2"> 
-                                <Button variant="dark" onClick={() => setIsLiked(!isLiked)} >
-                                    { isLiked ? "❤️" : "🤍" } 
+                                <Button variant="dark" onClick={() => handleLikedCat(cat) } >
+                                    { cat.favorite ? "❤️" : "🤍" } 
                                 </Button>
                             </ButtonGroup> 
+                            {isClicked ? <><hr/> 
+                                <CommentBox 
+                                    // handleComment={handleComment} 
+                                    cat={cat}
+                                /></> : null}
 
                         </Card.Body>
                     </Card>

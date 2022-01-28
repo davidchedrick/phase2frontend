@@ -7,7 +7,7 @@ function Home({ setLogIn }) {
     return(
         
         <LogoDiv>
-        <div class=" m-5 ">
+        <div className=" m-5 ">
             <LogoTitle className="display-4 justify-content-center m-4 cat-font">
                 BodhiCat's Cutie Cats
             </LogoTitle>
@@ -18,7 +18,7 @@ function Home({ setLogIn }) {
                 <input type="text"  placeholder="Username" className='shadow-box' />
                 <input type="text"  placeholder="Password" className='shadow-box' />
                 <Link  to="/cats">
-                    <button className="btn btn-outline-secondary shadow-box" type="button" onClick={() => setLogIn()}>Sign In</button>
+                    <button className="btn btn-outline-secondary shadow-box" type="button" >Sign In</button>
                 </Link>
                 
             </div>

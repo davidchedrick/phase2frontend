@@ -15,7 +15,7 @@ function App() {
 
     const [cats, setCats] = useState([]);
     const [fetchRequest, setFetchRequest] = useState(false);
-    const [loggedIn, isLoggedIn] = useState(false)
+    // const [loggedIn, isLoggedIn] = useState(false)
 
     const BASE_URL = "http://localhost:3000/cats"
 
@@ -40,24 +40,38 @@ function App() {
         .then(setFetchRequest(!fetchRequest));
     }
 
-    function handleComment(newComment, cat) {
-        fetch(`BASE_URL + /${cat.id}`, {
+    function handleLikedCat(cat){
+        console.log("catddd: ", cat);
+        fetch(`http://localhost:3000/cats/${cat.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newComment)
+            body: JSON.stringify({"favorite": !cat.favorite})
         })
         .then(setFetchRequest(!fetchRequest))
-    }
 
-   function handleLogIn() {
-       isLoggedIn(!loggedIn)
-   }
+    }
+    // function handleComment(newComment, cat) {
+    //     console.log("newComment!!!!: ", newComment);
+    //     fetch(`http://localhost:3000/cats/${cat.id}`, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(newComment)
+    //     })
+    //     .then(setFetchRequest(!fetchRequest))
+    // }
+
+//    function handleLogIn() {
+//        isLoggedIn(!loggedIn)
+//    }
 
     return (
         <div  className='App'>
-           {loggedIn ? <Header /> : null }
+            <Header />
+           {/* {loggedIn ?  : null } */}
             <Switch>
 
                 
@@ -65,7 +79,8 @@ function App() {
                 <Route  path="/cats">
                     <CatArea 
                         cats={cats} 
-                        handleComment={handleComment}
+                        handleLikedCat={handleLikedCat}
+                        // handleComment={handleComment}
                     />
                 </Route>
 
@@ -81,10 +96,10 @@ function App() {
                 </Route> 
 
                 <Route exact path="/">
-                    <Home setLogIn={handleLogIn}/>
+                    <Home />
                 </Route>
 
-                
+                {/* setLogIn={handleLogIn} */}
                 
                 <Route path="*">
                     <h1>404 not found</h1>
