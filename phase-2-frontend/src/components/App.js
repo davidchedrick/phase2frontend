@@ -5,7 +5,7 @@ import './App.css';
 
 import CatArea from './CatArea';
 import Header from './Header';
-import Settings from './Settings';
+import Edit from './Edit';
 import FormPage from './FormPage';
 import Home from './Home';
 
@@ -95,6 +95,10 @@ function App() {
                     />
                 </Route>
 
+                <Route path="/edit">
+                    <Edit   />
+                </Route> 
+
                 <Route path="/add">
                     <FormPage   
                         cats={cats} 
@@ -102,9 +106,7 @@ function App() {
                     />
                 </Route>
 
-                <Route path="/settings">
-                    <Settings   />
-                </Route> 
+                
 
                 <Route exact path="/">
                     <Home />
