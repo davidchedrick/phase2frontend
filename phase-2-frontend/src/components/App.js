@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import './App.css';
@@ -11,6 +11,7 @@ import Home from './Home';
 
 
 
+
 function App() {
 
     const [cats, setCats] = useState([]);
@@ -18,6 +19,8 @@ function App() {
     // const [loggedIn, isLoggedIn] = useState(false)
 
     const BASE_URL = "http://localhost:3000/cats"
+
+    const history = useHistory();
 
     useEffect(() => {
         fetchCats();
@@ -41,7 +44,7 @@ function App() {
     }
 
     function handleLikedCat(cat) {
-        fetch(`http://localhost:3000/cats/${cat.id}`, {
+        fetch(BASE_URL + `/${cat.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -53,13 +56,14 @@ function App() {
     }
 
     function handleDeleteCat(cat) {
-        fetch(`http://localhost:3000/cats/${cat.id}`, {
+        fetch(BASE_URL + `/${cat.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
             },
         })
         .then(setFetchRequest(!fetchRequest))
+        history.push("/cats")
     }
 
     // function handleComment(newComment, cat) {
@@ -96,7 +100,7 @@ function App() {
                 </Route>
 
                 <Route path="/edit/:id">
-                    <Edit  cat={cats}  />
+                    <Edit  handleDeleteCat={handleDeleteCat}  />
                 </Route> 
 
                 <Route path="/add">

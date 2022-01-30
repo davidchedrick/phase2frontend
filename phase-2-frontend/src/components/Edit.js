@@ -5,7 +5,7 @@ import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react
 import FormPage from "./FormPage.js";
 
 
-function Edit() {
+function Edit({handleDeleteCat}) {
     
     const id = useParams().id
     const {cat, isLoaded} = useCat(id)
@@ -56,7 +56,7 @@ function Edit() {
                     </Div>
                 </Col>
                 <Row>
-                    <Button type="button" className="btn btn-danger mt-4 mb-5"  >
+                    <Button onClick={() => handleDeleteCat(cat)} type="button" className="btn btn-danger mt-4 mb-5"  >
                         DELETE
                     </Button>
                 </Row>
