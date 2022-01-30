@@ -3,6 +3,7 @@ import useCat from "../hooks/useCat.js";
 import styled from "styled-components";
 import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react-bootstrap";
 import FormPage from "./FormPage.js";
+import Loading from "./Loading.js";
 
 
 function Edit({handleDeleteCat}) {
@@ -10,7 +11,7 @@ function Edit({handleDeleteCat}) {
     const id = useParams().id
     const {cat, isLoaded} = useCat(id)
 
-    if (!isLoaded) return <h2>Loading...</h2>;
+    if (!isLoaded) return <h2><Loading /></h2>;
 
     return (
         
