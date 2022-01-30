@@ -95,8 +95,8 @@ function App() {
                     />
                 </Route>
 
-                <Route path="/edit">
-                    <Edit   />
+                <Route path="/edit/:id">
+                    <Edit  cat={cats}  />
                 </Route> 
 
                 <Route path="/add">

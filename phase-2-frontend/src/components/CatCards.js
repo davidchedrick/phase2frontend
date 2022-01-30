@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react-bootstrap";
 import CommentBox from "./CommentBox";
-import Edit from "./Edit";
+
 import { Link } from "react-router-dom";
 
 function CatCards({ cat, handleLikedCat, handleDeleteCat }) {

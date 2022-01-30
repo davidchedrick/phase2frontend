@@ -78,7 +78,7 @@ function FormPage({ cats, handleAddCat }) {
                 />
             </form>
 
-            <p>{formData.title} {formData.content}</p>
+            
         </div>  
     )
     
