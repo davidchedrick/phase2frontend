@@ -1,11 +1,21 @@
 import  logo  from '../logo/tywater.png';
 import { Link, NavLink } from 'react-router-dom';
 import styled from "styled-components";
+import { useContext } from 'react';
+import { UserContext } from '../context/user';
 
 function Header() {
 
+    const user = useContext(UserContext)
+    
+
     return(
+        <>
+        <UserDiv>
+            Welcome, {user.username}
+        </UserDiv>
         <HeaderDiv className='mb-4 h-25'>
+             
             <nav className="navbar navbar-light ">
            
                 <LogoImg src={logo} alt="BodiCat" className='m-1' />
@@ -26,7 +36,9 @@ function Header() {
                     </NavLink>
                 </IconDiv>
             </nav>
+           
         </HeaderDiv>
+        </>
     );
 
 }
@@ -54,6 +66,12 @@ const IconDiv = styled.div`
    
    margin-right: 30px;
 ` 
+const UserDiv = styled.div`
+    display: flex;
+    justify-content: right;
+    margin-right: 30px;
+    font-weight: bold;
+`
 
 
 export default Header;

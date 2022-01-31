@@ -4,9 +4,9 @@ import { Container } from "react-bootstrap";
 
 import CatCards from "./CatCards";
 
-// ,handleComment
 
-function CatArea({ cats, handleLikedCat,handleDeleteCat  }) {
+
+function CatArea({ cats, handleLikedCat, handleDeleteCat, handleComment  }) {
 
 
     const catList = [...cats].reverse().map(cat => (
@@ -15,7 +15,7 @@ function CatArea({ cats, handleLikedCat,handleDeleteCat  }) {
         cat={cat} 
         handleLikedCat={handleLikedCat}
         handleDeleteCat={handleDeleteCat}
-        // handleComment={handleComment}
+        handleComment={handleComment}
       />  
     ))
 

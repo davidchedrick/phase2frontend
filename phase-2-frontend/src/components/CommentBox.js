@@ -1,59 +1,63 @@
-// import { useState } from "react";
+import { useState } from "react";
 
-// , handleComment 
-function CommentBox({ cat}) {
+
+function CommentBox({ cat, handleComment }) {
 
     const { comments } = cat
     console.log("cat||||: ", cat);
-    console.log("comments: ", comments);
+    console.log("comments||||: ", comments);
     
 
-    // const [commentData, setCommentData] = useState({
+    const [commentData, setCommentData] = useState({
         
-    //     comments: [],
-    // })
+        comments: {
+            comment: ""
+        },
+    })
 
-    // function handleChange(e) {
+    function handleChange(e) {
         
-    //     let targetName = e.target.name;
-    //     let targetValue = e.target.value;
+        let targetName = e.target.name;
+        let targetValue = e.target.value;
 
-    //     setCommentData({
-    //         ...commentData, [targetName]: targetValue
-    //     });
-    // }
+        setCommentData({
+            ...commentData, [targetName]: targetValue
+        });
+    }
 
-    // function handleSubmit(e, cat) {
-    //     console.log("cat????: ", cat);
+    function handleSubmit(e) {
+       
+        console.log("cat????: ", cat);
         
-    //     e.preventDefault();
+        e.preventDefault();
 
-    //     let newId = comments.length + 1;
+        let newId = comments.length + 1;
 
-    //     const newComment ={
-    //         id: newId,
-    //         comments: commentData,
+        const newComment ={
+            id: newId,
+            comment: commentData,
            
-    //     }
+        }
 
-    //     handleComment(newComment, cat);
+        handleComment(newComment);
 
-    //     setCommentData({
-    //         comments: []
+        setCommentData({
+            comments: []
             
-    //     });
-    // }
+        });
+    }
 
     return(
-        // onSubmit={handleSubmit}
-        <form >
+        
+        <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 placeholder="Comment" 
                 name="comments"
                 className="input"
-                // onChange={handleChange}
-                // value={commentData.comments}
+                onChange={handleChange}
+                value={commentData.comments}
+
             />
             <input 
                 type="submit" 

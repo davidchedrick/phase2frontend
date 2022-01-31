@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import useCat from "../hooks/useCat.js";
 import styled from "styled-components";
-import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react-bootstrap";
+import { Container, Card, Button, Row, Col, ButtonGroup } from "react-bootstrap";
 import FormPage from "./FormPage.js";
 import Loading from "./Loading.js";
 
@@ -32,9 +32,7 @@ function Edit({handleDeleteCat}) {
                             <hr/>
                             <Card.Text>Comments:</Card.Text>
                             
-                            <ListGroup >
-                                {/* {commentArea} */}
-                            </ListGroup>
+                         
                             <hr/>
                               
                             <ButtonGroup className="me-2">

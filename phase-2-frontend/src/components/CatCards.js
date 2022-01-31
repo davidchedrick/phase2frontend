@@ -1,27 +1,28 @@
 import React, { useState } from "react";
-// import Comments from "./Comments";
+import Comments from "./Comments";
 import styled from "styled-components";
 import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react-bootstrap";
 import CommentBox from "./CommentBox";
 
 import { Link } from "react-router-dom";
 
-function CatCards({ cat, handleLikedCat, handleDeleteCat }) {
-//    , handleComment
+function CatCards({ cat, handleLikedCat, handleComment }) {
+   
 
     
     const [isClicked, setIsClicked] = useState(false);
     const { image, title, description, comments, id } = cat;
     
-    // const commentArea = comments.map(commentList => 
+    
+    const commentArea = comments.map(commentList => 
         
-    //     (
-    //         <Comments 
-    //             key={commentList.id} 
-    //             commentList={commentList}
-    //         /> 
-    //     )
-    // )
+        (
+            <Comments 
+                key={commentList.id} 
+                commentList={commentList}
+            /> 
+        )
+    )
 
    function handleClicked() {
        setIsClicked(!isClicked)
@@ -53,7 +54,7 @@ function CatCards({ cat, handleLikedCat, handleDeleteCat }) {
                             <Card.Text>Comments:</Card.Text>
                             
                             <ListGroup >
-                                {/* {commentArea} */}
+                                {commentArea}
                             </ListGroup>
                             <hr/>
                               
@@ -71,7 +72,7 @@ function CatCards({ cat, handleLikedCat, handleDeleteCat }) {
                             </ButtonGroup> 
                             {isClicked ? <><hr/> 
                                 <CommentBox 
-                                    // handleComment={handleComment} 
+                                    handleComment={handleComment} 
                                     cat={cat}
                                 /></> : null}
                             
