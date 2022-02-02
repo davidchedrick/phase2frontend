@@ -1,8 +1,43 @@
-import { Link } from 'react-router-dom';
+
 import  logo  from '../logo/tywater.png';
 import styled from "styled-components";
+import { useContext, useState } from 'react';
+import { UserContext } from '../context/user';
+import { useHistory } from 'react-router-dom';
 
-function Home({ setLogIn }) {
+function Home() {
+    const [logIn, setLogIn] = useState(false);
+    console.log("logIn: ", logIn);
+    const [formData, setFormData] = useState("")
+    console.log("formData: ", formData);
+    const [user, setUser] = useContext(UserContext);
+    console.log("user33333: ", user);
+    const history = useHistory();
+
+    function handleChange(e) {
+        console.log(54545454, "jjj")
+        // let targetName = e.target.name;
+        let targetValue = e.target.value;
+        console.log("targetValue: ", targetValue);
+
+        setFormData(
+           targetValue
+        );
+        
+        
+        
+        setLogIn(true)
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+    
+        if(logIn === true) {
+            setUser(formData)
+            history.push('/cats')
+        }
+
+    }
 
     return(
         
@@ -15,11 +50,12 @@ function Home({ setLogIn }) {
             <LogoImg src={ logo }  alt="BodiCat" className=' m-4'/> 
             
             <div className="input-group m-4 justify-content-center">
-                <input type="text"  placeholder="Username" className='shadow-box' />
-                <input type="text"  placeholder="Password" className='shadow-box' />
-                <Link  to="/cats">
-                    <button className="btn btn-outline-secondary shadow-box" type="button" >Sign In</button>
-                </Link>
+                <form onSubmit={handleSubmit}>
+                    
+                    <input type="text"  placeholder="Username" name="username" onChange={handleChange} className='shadow-box' />
+                    <input type="submit" ></input>
+                </form>
+                
                 
             </div>
             
