@@ -1,19 +1,22 @@
 import { createContext, useState } from "react";
 
 const UserContext = createContext();
-
+const LogInContext = createContext();
 
 function UserProvider({ children }) {
     
     const [user, setUser] = useState(null);
-    console.log("UseUSEuser: ", user);
-    const value = [user, setUser]
+    const [logIn, setLogIn] = useState(false);
+    const currentUser = [user, setUser]
+    const login = [logIn, setLogIn]
 
     return (
-        <UserContext.Provider value={value}>
+        <UserContext.Provider value={currentUser}>
+            <LogInContext.Provider value={login}>
             {children}
+            </LogInContext.Provider>
         </UserContext.Provider>)
 
 }
 
-export {UserContext, UserProvider}
+export {UserContext, LogInContext, UserProvider}

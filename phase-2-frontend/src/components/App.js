@@ -1,6 +1,6 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { UserProvider } from '../context/user';
+import { LogInContext, UserProvider } from '../context/user';
 import './App.css';
 
 import CatArea from './CatArea';
@@ -8,6 +8,7 @@ import Header from './Header';
 import Edit from './Edit';
 import FormPage from './FormPage';
 import Home from './Home';
+import { useContext } from 'react';
 
 
 
@@ -17,7 +18,7 @@ function App() {
 
     const [cats, setCats] = useState([]);
     const [fetchRequest, setFetchRequest] = useState(false);
-    // const [loggedIn, isLoggedIn] = useState(false)
+    // const [logIn, setLogIn] = useContext(LogInContext);
 
     const BASE_URL = "http://localhost:3000/cats"
 
@@ -83,11 +84,16 @@ function App() {
 //        isLoggedIn(!loggedIn)
 //    }
 
+    // if(logIn === false){
+    //     return (
+    //         <Home />
+    //     )
+    // }
+
     return (
         <div  className='App'>
             <UserProvider>
                 <Header />
-            {/* {loggedIn ?  : null } */}
                 <Switch>
 
                     

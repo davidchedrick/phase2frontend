@@ -2,23 +2,23 @@
 import  logo  from '../logo/tywater.png';
 import styled from "styled-components";
 import { useContext, useState } from 'react';
-import { UserContext } from '../context/user';
+import { UserContext, LogInContext } from '../context/user';
 import { useHistory } from 'react-router-dom';
 
 function Home() {
-    const [logIn, setLogIn] = useState(false);
-    console.log("logIn: ", logIn);
+    // const [logIn, setLogIn] = useState(false);
+    
+    
     const [formData, setFormData] = useState("")
-    console.log("formData: ", formData);
+   
     const [user, setUser] = useContext(UserContext);
-    console.log("user33333: ", user);
+    const [logIn, setLogIn] = useContext(LogInContext);
     const history = useHistory();
-
+console.log("logIn: ", logIn);
     function handleChange(e) {
-        console.log(54545454, "jjj")
-        // let targetName = e.target.name;
+      
         let targetValue = e.target.value;
-        console.log("targetValue: ", targetValue);
+       
 
         setFormData(
            targetValue
