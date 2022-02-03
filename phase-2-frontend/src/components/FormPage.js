@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { Container, Card, Button, Row, Col, ButtonGroup } from "react-bootstrap";
+import styled from "styled-components";
+import { v4 as uuid } from "uuid";
 
 function FormPage({ cats, handleAddCat }) {
 
 
     const [formData, setFormData] = useState({
-        title: "",
+        name: "",
         description: "",
         image: "",
-        favorite: false,
-        comments: [],
+        
     })
 
     function handleFormData(e) {
@@ -23,35 +25,37 @@ function FormPage({ cats, handleAddCat }) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        let newId = cats.length + 1;
+        let id = uuid();
 
         const newCat ={
-            id: newId,
-            title: formData.title,
-            description: formData.description,
-            image: formData.image
+            ...formData,
+            favorite: false,
+            comments: [],
+            id,
         }
-
+        console.log("newCat on form page", newCat);
         handleAddCat(newCat);
 
         setFormData({
-            title: "",
+            name: "",
             description: "",
             image: "",
         });
+
+        
     }
 
     return(
         <div>
-            <h1>New Cats!</h1>
+            <h1>New Cat!</h1>
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
-                    placeholder="Title" 
-                    name="title"
+                    placeholder="Name" 
+                    name="name"
                     className="input"
                     onChange={handleFormData}
-                    value={formData.title}
+                    value={formData.name}
                 />
                 <input 
                     type="text" 
@@ -77,12 +81,61 @@ function FormPage({ cats, handleAddCat }) {
                     className="input"
                 />
             </form>
+           
+        <Container>        
+            <Row className="justify-content-md-center" >
+                <Col xs="auto">
+                    <Div>
+                    <Card style={{ width: '18rem'}}>
+                        <Card.Img variant="top" src={formData.image} alt={formData.name}/>
+                        
+                        <Card.Body className="mt-1">
+                            <Card.Title>{formData.name}</Card.Title>
+                            
+                            <Card.Text>{formData.description}</Card.Text>
+                            <hr/>
+                            <Card.Text>Comments:</Card.Text>
+                            
+                         
+                            <hr/>
+                              
+                            <ButtonGroup className="me-2">
+                                <Button 
+                                    variant="dark"
+                                   
+                                >💬</Button>
+                                
+                            </ButtonGroup>  
+                            <ButtonGroup className="me-2"> 
+                                <Button variant="dark"  >
+                                    🤍
+                                </Button>
+                            </ButtonGroup> 
+                           <hr/> 
+                               
+                            
+                        </Card.Body>
+                    </Card>
+                    </Div>
+                </Col>
+            </Row>
+        </Container>
 
-            
+
+
+
+
         </div>  
     )
     
 
 }
+
+const Div = styled.div`
+    margin: 20px;
+        
+    border-radius: 15px;
+    box-shadow: 5px 3px 50px rgba(0, 0, 0, 0.75), -5px -3px 50px rgba(0, 0, 0, 0.75);
+`
 
 export default FormPage; 

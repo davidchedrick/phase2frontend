@@ -11,7 +11,7 @@ function CatCards({ cat, handleLikedCat, handleComment }) {
 
     
     const [isClicked, setIsClicked] = useState(false);
-    const { image, title, description, comments, id } = cat;
+    const { image, name, description, comments, id } = cat;
     
     
     const commentArea = comments.map(commentList => 
@@ -36,7 +36,7 @@ function CatCards({ cat, handleLikedCat, handleComment }) {
                 <Col xs="auto">
                     <Div>
                     <Card style={{ width: '18rem'}}>
-                        <Card.Img variant="top" src={image} alt={title} />
+                        <Card.Img variant="top" src={image} alt={name} />
                         <div className="btn d-flex justify-content-end">
                             <Link 
                                 
@@ -47,7 +47,7 @@ function CatCards({ cat, handleLikedCat, handleComment }) {
                             </Link>
                         </div>
                         <Card.Body className="mt-1">
-                            <Card.Title>{title}</Card.Title>
+                            <Card.Title>{name}</Card.Title>
                             
                             <Card.Text>{description}</Card.Text>
                             <hr/>

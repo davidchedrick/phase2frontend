@@ -20,7 +20,7 @@ function App() {
     const [cats, setCats] = useState([]);
     const [fetchRequest, setFetchRequest] = useState(false);
     const [logIn, setLogIn] = useContext(LogInContext);
-    console.log("logIn:99999 ", logIn);
+    
 
     const BASE_URL = "http://localhost:3000/cats"
 
@@ -37,6 +37,7 @@ function App() {
     }
 
     function handleAddCat(newCat) {
+        console.log("newCat on app: ", newCat);
         fetch(BASE_URL, {
             method: "POST",
             headers: {
@@ -45,6 +46,7 @@ function App() {
             body: JSON.stringify(newCat)
         })
         .then(setFetchRequest(!fetchRequest));
+        history.push("/cats")
     }
 
     function handleLikedCat(cat) {
@@ -71,7 +73,6 @@ function App() {
     }
 
     function handleComment(newComment, cat) {
-        console.log("newComment!!!!: ", newComment);
         fetch(`http://localhost:3000/cats/${cat.id}`, {
             method: "PATCH",
             headers: {

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 
 function useCat(id){
     const [cat, setCat] = useState(null);

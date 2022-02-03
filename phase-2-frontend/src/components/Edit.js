@@ -31,10 +31,10 @@ function Edit({handleDeleteCat}) {
                 <Col xs="auto">
                     <Div>
                     <Card style={{ width: '18rem'}}>
-                        <Card.Img variant="top" src={cat.image} alt={cat.title} onClick={editClick}/>
+                        <Card.Img variant="top" src={cat.image} alt={cat.name} onClick={editClick}/>
                         
                         <Card.Body className="mt-1">
-                            <Card.Title onClick={editClick}>{cat.title}</Card.Title>
+                            <Card.Title onClick={editClick}>{cat.name}</Card.Title>
                             
                             <Card.Text onClick={editClick}>{cat.description}</Card.Text>
                             <hr/>
@@ -77,11 +77,11 @@ function Edit({handleDeleteCat}) {
 }
 
 const Div = styled.div`
-        margin: 20px;
+    margin: 20px;
         
-        border-radius: 15px;
-        box-shadow: 5px 3px 50px rgba(0, 0, 0, 0.75), -5px -3px 50px rgba(0, 0, 0, 0.75);
-    `
+    border-radius: 15px;
+    box-shadow: 5px 3px 50px rgba(0, 0, 0, 0.75), -5px -3px 50px rgba(0, 0, 0, 0.75);
+`
 
 
 export default Edit;
