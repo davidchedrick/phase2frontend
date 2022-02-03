@@ -1,6 +1,7 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { LogInContext, UserProvider } from '../context/user';
+import { useContext } from 'react';
+import { LogInContext } from '../context/user';
 import './App.css';
 
 import CatArea from './CatArea';
@@ -8,7 +9,7 @@ import Header from './Header';
 import Edit from './Edit';
 import FormPage from './FormPage';
 import Home from './Home';
-import { useContext } from 'react';
+
 
 
 
@@ -18,7 +19,8 @@ function App() {
 
     const [cats, setCats] = useState([]);
     const [fetchRequest, setFetchRequest] = useState(false);
-    // const [logIn, setLogIn] = useContext(LogInContext);
+    const [logIn, setLogIn] = useContext(LogInContext);
+    console.log("logIn:99999 ", logIn);
 
     const BASE_URL = "http://localhost:3000/cats"
 
@@ -80,19 +82,19 @@ function App() {
         .then(setFetchRequest(!fetchRequest))
     }
 
-//    function handleLogIn() {
-//        isLoggedIn(!loggedIn)
-//    }
 
-    // if(logIn === false){
-    //     return (
-    //         <Home />
-    //     )
-    // }
+
+    if(!logIn){
+        return(
+                <div  className='App'>
+               <Home />
+                </div>
+        )
+    }
 
     return (
         <div  className='App'>
-            <UserProvider>
+            
                 <Header />
                 <Switch>
 
@@ -124,14 +126,14 @@ function App() {
                         <Home />
                     </Route>
 
-                    {/* setLogIn={handleLogIn} */}
+            
                     
                     <Route path="*">
                         <h1>404 not found</h1>
                     </Route>
 
                 </Switch>    
-            </UserProvider>
+            
         </div>
     );
 

@@ -18,8 +18,9 @@ function Header() {
     }
     return(
         <>
+         
         <UserDiv>
-            Welcome, {user}
+            {logIn ? `Welcome, ${user} ` : ""}
         </UserDiv>
         <HeaderDiv className='mb-4 h-25'>
              

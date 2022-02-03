@@ -14,29 +14,20 @@ function Home() {
     const [user, setUser] = useContext(UserContext);
     const [logIn, setLogIn] = useContext(LogInContext);
     const history = useHistory();
-console.log("logIn: ", logIn);
+
     function handleChange(e) {
       
         let targetValue = e.target.value;
        
-
-        setFormData(
-           targetValue
-        );
+        setFormData(targetValue);
         
-        
-        
-        setLogIn(true)
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-    
-        if(logIn === true) {
-            setUser(formData)
-            history.push('/cats')
-        }
-
+        setUser(formData)
+        setLogIn(true)
+        history.push('/cats')
     }
 
     return(
