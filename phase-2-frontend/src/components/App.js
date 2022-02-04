@@ -2,6 +2,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { LogInContext } from '../context/user';
+
 import './App.css';
 
 import CatArea from './CatArea';
@@ -9,11 +10,6 @@ import Header from './Header';
 import Edit from './Edit';
 import FormPage from './FormPage';
 import Home from './Home';
-
-
-
-
-
 
 function App() {
 
@@ -73,12 +69,14 @@ function App() {
     }
 
     function handleComment(newComment, cat) {
-        fetch(`http://localhost:3000/cats/${cat.id}`, {
+        console.log("cat in app: ", cat);
+        console.log("newComment in app: ", newComment);
+        fetch(BASE_URL + `/${cat.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({comments: newComment})
+            body: JSON.stringify({"comments": newComment})
         })
         .then(setFetchRequest(!fetchRequest))
     }

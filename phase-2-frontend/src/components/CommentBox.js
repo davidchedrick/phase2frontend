@@ -1,18 +1,16 @@
 import { useState } from "react";
-
+import { v4 as uuid } from "uuid";
 
 function CommentBox({ cat, handleComment }) {
 
     const { comments } = cat
-    console.log("cat||||: ", cat);
-    console.log("comments||||: ", comments);
+    console.log("cat in comment box: ", cat);
+    console.log("comments| in comment box: ", comments);
     
 
     const [commentData, setCommentData] = useState({
         
-        comments: {
-            comment: ""
-        },
+        comments: []
     })
 
     function handleChange(e) {
@@ -27,19 +25,21 @@ function CommentBox({ cat, handleComment }) {
 
     function handleSubmit(e) {
        
-        console.log("cat????: ", cat);
+        console.log("cat in submit : ", cat);
         
         e.preventDefault();
 
-        let newId = comments.length + 1;
+        let id = uuid();
 
         const newComment ={
-            id: newId,
-            comment: commentData,
+            ...commentData,
+            id
            
         }
+        console.log("newComment: ", newComment);
 
-        handleComment(newComment);
+        handleComment(newComment, cat);
+        
 
         setCommentData({
             comments: []
