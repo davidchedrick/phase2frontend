@@ -1,9 +1,13 @@
-import  logo  from '../logo/tywater.png';
-import { Link, NavLink } from 'react-router-dom';
-import styled from "styled-components";
 import { useContext } from 'react';
-import { UserContext, LogInContext } from '../context/user';
 import { useHistory } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+
+import  logo  from '../logo/tywater.png';
+
+import styled from "styled-components";
+
+import { UserContext, LogInContext } from '../context/user';
+
 
 function Header() {
 
@@ -18,12 +22,10 @@ function Header() {
     }
     return(
         <>
-         
         <UserDiv>
             {logIn ? `Welcome, ${user} ` : ""}
         </UserDiv>
         <HeaderDiv className='mb-4 h-25'>
-             
             <nav className="navbar navbar-light ">
            
                 <LogoImg src={logo} alt="BodiCat" className='m-1' />
@@ -44,7 +46,6 @@ function Header() {
                     </span>
                 </IconDiv>
             </nav>
-           
         </HeaderDiv>
         </>
     );
@@ -52,7 +53,6 @@ function Header() {
 }
 
 const HeaderDiv = styled.div`
-   
    height: 100px;
    border: 2px solid;
    border-radius: 3px;
@@ -68,10 +68,8 @@ const LogoImg = styled.img`
    width: 80px;
    height: 80px;
    border-radius: 360px;
-
 `
 const IconDiv = styled.div`
-   
    margin-right: 30px;
 ` 
 const UserDiv = styled.div`
@@ -80,6 +78,5 @@ const UserDiv = styled.div`
     margin-right: 30px;
     font-weight: bold;
 `
-
 
 export default Header;

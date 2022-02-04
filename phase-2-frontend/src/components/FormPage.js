@@ -5,12 +5,10 @@ import { v4 as uuid } from "uuid";
 
 function FormPage({ cats, handleAddCat }) {
 
-
     const [formData, setFormData] = useState({
         name: "",
         description: "",
         image: "",
-        
     })
 
     function handleFormData(e) {
@@ -24,7 +22,6 @@ function FormPage({ cats, handleAddCat }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-
         let id = uuid();
 
         const newCat ={
@@ -33,7 +30,7 @@ function FormPage({ cats, handleAddCat }) {
             comments: [],
             id,
         }
-        console.log("newCat on form page", newCat);
+        
         handleAddCat(newCat);
 
         setFormData({
@@ -42,7 +39,6 @@ function FormPage({ cats, handleAddCat }) {
             image: "",
         });
 
-        
     }
 
     return(
@@ -82,58 +78,48 @@ function FormPage({ cats, handleAddCat }) {
                 />
             </form>
            
-        <Container>        
-            <Row className="justify-content-md-center" >
-                <Col xs="auto">
-                    <Div>
-                    <Card style={{ width: '18rem'}}>
-                        <Card.Img variant="top" src={formData.image} alt={formData.name}/>
-                        
-                        <Card.Body className="mt-1">
-                            <Card.Title>{formData.name}</Card.Title>
+            <Container>        
+                <Row className="justify-content-md-center" >
+                    <Col xs="auto">
+                        <Div>
+                        <Card style={{ width: '18rem'}}>
+                            <Card.Img variant="top" src={formData.image} alt={formData.name}/>
                             
-                            <Card.Text>{formData.description}</Card.Text>
-                            <hr/>
-                            <Card.Text>Comments:</Card.Text>
-                            
-                         
-                            <hr/>
-                              
-                            <ButtonGroup className="me-2">
-                                <Button 
-                                    variant="dark"
-                                   
-                                >💬</Button>
+                            <Card.Body className="mt-1">
+                                <Card.Title>{formData.name}</Card.Title>
                                 
-                            </ButtonGroup>  
-                            <ButtonGroup className="me-2"> 
-                                <Button variant="dark"  >
-                                    🤍
-                                </Button>
-                            </ButtonGroup> 
-                           <hr/> 
-                               
-                            
-                        </Card.Body>
-                    </Card>
-                    </Div>
-                </Col>
-            </Row>
-        </Container>
-
-
-
-
-
+                                <Card.Text>{formData.description}</Card.Text>
+                                <hr/>
+                                <Card.Text>Comments:</Card.Text>
+                                
+                                <hr/>
+                                
+                                <ButtonGroup className="me-2">
+                                    <Button 
+                                        variant="dark"
+                                    
+                                    >💬</Button>
+                                    
+                                </ButtonGroup>  
+                                <ButtonGroup className="me-2"> 
+                                    <Button variant="dark"  >
+                                        🤍
+                                    </Button>
+                                </ButtonGroup> 
+                            <hr/> 
+                                
+                            </Card.Body>
+                        </Card>
+                        </Div>
+                    </Col>
+                </Row>
+            </Container>
         </div>  
     )
-    
-
 }
 
 const Div = styled.div`
     margin: 20px;
-        
     border-radius: 15px;
     box-shadow: 5px 3px 50px rgba(0, 0, 0, 0.75), -5px -3px 50px rgba(0, 0, 0, 0.75);
 `

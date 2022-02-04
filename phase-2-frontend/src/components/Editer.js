@@ -1,14 +1,8 @@
 
-
 function Editer({ cat }) {
-    console.log("cat: ", cat);
-
+ 
     function handleSubmit(e) {
-        
-        console.log(6556565);
-        
-
-        
+     
     }
 
     return (

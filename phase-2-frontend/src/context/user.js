@@ -15,7 +15,8 @@ function UserProvider({ children }) {
             <LogInContext.Provider value={login}>
             {children}
             </LogInContext.Provider>
-        </UserContext.Provider>)
+        </UserContext.Provider>
+    )
 
 }
 

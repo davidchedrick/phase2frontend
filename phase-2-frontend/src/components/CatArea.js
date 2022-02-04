@@ -1,13 +1,8 @@
-
-
 import { Container } from "react-bootstrap";
 
 import CatCards from "./CatCards";
 
-
-
 function CatArea({ cats, handleLikedCat, handleDeleteCat, handleComment  }) {
-
 
     const catList = [...cats].reverse().map(cat => (
       <CatCards 
@@ -20,23 +15,13 @@ function CatArea({ cats, handleLikedCat, handleDeleteCat, handleComment  }) {
     ))
 
     return (
-        <>
-        
         <Container>
-            
-            
             <Container>
-                
                 {catList}
-            
             </Container>
         </Container>
-        
-        </>
     );
 
 }
-
-
  
 export default CatArea;

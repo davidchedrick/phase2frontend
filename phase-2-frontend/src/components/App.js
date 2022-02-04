@@ -10,17 +10,18 @@ import Header from './Header';
 import Edit from './Edit';
 import FormPage from './FormPage';
 import Home from './Home';
+import Loading from './Loading';
 
 function App() {
 
     const [cats, setCats] = useState([]);
     const [fetchRequest, setFetchRequest] = useState(false);
     const [logIn, setLogIn] = useContext(LogInContext);
-    
-
-    const BASE_URL = "http://localhost:3000/cats"
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const history = useHistory();
+
+    const BASE_URL = "http://localhost:3000/cats";
 
     useEffect(() => {
         fetchCats();
@@ -29,11 +30,15 @@ function App() {
     function fetchCats() {
         fetch(BASE_URL)
           .then(resp => resp.json())
-          .then(cats => setCats(cats));
+          .then(cats => {
+              setCats(cats)
+              setIsLoaded(true)
+              setFetchRequest(false)
+            });
+            
     }
 
     function handleAddCat(newCat) {
-        console.log("newCat on app: ", newCat);
         fetch(BASE_URL, {
             method: "POST",
             headers: {
@@ -41,8 +46,9 @@ function App() {
             },
             body: JSON.stringify(newCat)
         })
-        .then(setFetchRequest(!fetchRequest));
-        history.push("/cats")
+        .then(setFetchRequest(fetchRequest => !fetchRequest));
+        history.push("/cats");
+        
     }
 
     function handleLikedCat(cat) {
@@ -53,8 +59,7 @@ function App() {
             },
             body: JSON.stringify({"favorite": !cat.favorite})
         })
-        .then(setFetchRequest(!fetchRequest))
-
+        .then(setFetchRequest(fetchRequest => !fetchRequest))
     }
 
     function handleDeleteCat(cat) {
@@ -64,13 +69,11 @@ function App() {
                 "Content-Type": "application/json"
             },
         })
-        .then(setFetchRequest(!fetchRequest))
-        history.push("/cats")
+        .then(setFetchRequest(fetchRequest => !fetchRequest))
+        history.push("/cats");
     }
 
     function handleComment(newComment, cat) {
-        console.log("cat in app: ", cat);
-        console.log("newComment in app: ", newComment);
         fetch(BASE_URL + `/${cat.id}`, {
             method: "PATCH",
             headers: {
@@ -78,26 +81,23 @@ function App() {
             },
             body: JSON.stringify({"comments": newComment})
         })
-        .then(setFetchRequest(!fetchRequest))
+        .then(setFetchRequest(fetchRequest => !fetchRequest))
     }
-
-
 
     if(!logIn){
         return(
-                <div  className='App'>
+            <div  className='App'>
                <Home />
-                </div>
+            </div>
         )
     }
 
+    if (!isLoaded) return <h2><Loading /></h2>;
+
     return (
         <div  className='App'>
-            
                 <Header />
                 <Switch>
-
-                    
 
                     <Route  path="/cats">
                         <CatArea 
@@ -109,7 +109,7 @@ function App() {
                     </Route>
 
                     <Route path="/edit/:id">
-                        <Edit  handleDeleteCat={handleDeleteCat}  />
+                        <Edit handleDeleteCat={handleDeleteCat} />
                     </Route> 
 
                     <Route path="/add">
@@ -118,21 +118,16 @@ function App() {
                             handleAddCat={handleAddCat} 
                         />
                     </Route>
-
-                    
-
+   
                     <Route exact path="/">
                         <Home />
                     </Route>
-
-            
                     
                     <Route path="*">
                         <h1>404 not found</h1>
                     </Route>
 
-                </Switch>    
-            
+                </Switch>     
         </div>
     );
 

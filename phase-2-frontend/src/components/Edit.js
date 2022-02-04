@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import useCat from "../hooks/useCat.js";
+
 import styled from "styled-components";
 import { Container, Card, Button, Row, Col, ButtonGroup } from "react-bootstrap";
 
 import Loading from "./Loading.js";
-import { useState } from "react";
 import Editer from "./Editer.js";
-
 
 function Edit({handleDeleteCat}) {
     
@@ -18,8 +18,6 @@ function Edit({handleDeleteCat}) {
 
     function editClick() {
         setIsEdit(isEdit => !isEdit)
-        
-       
     }
 
     return (
@@ -40,7 +38,6 @@ function Edit({handleDeleteCat}) {
                             <hr/>
                             <Card.Text>Comments:</Card.Text>
                             
-                         
                             <hr/>
                               
                             <ButtonGroup className="me-2">
@@ -57,7 +54,6 @@ function Edit({handleDeleteCat}) {
                             </ButtonGroup> 
                            <hr/> 
                                
-                            
                         </Card.Body>
                     </Card>
                     </Div>
@@ -71,17 +67,11 @@ function Edit({handleDeleteCat}) {
         </Container>
         
     );
-
-    
-
 }
 
 const Div = styled.div`
     margin: 20px;
-        
     border-radius: 15px;
     box-shadow: 5px 3px 50px rgba(0, 0, 0, 0.75), -5px -3px 50px rgba(0, 0, 0, 0.75);
 `
-
-
 export default Edit;

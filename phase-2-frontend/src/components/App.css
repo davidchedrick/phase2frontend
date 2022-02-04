@@ -1,21 +1,16 @@
 .App {
   text-align: center;
   background-color: #F3F3F3
-  /* background: linear-gradient(52deg, rgb(21, 2, 22), rgba(111, 8, 134, 0.801), rgba(235, 50, 241, 0.938), rgba(221, 17, 153, 0.774), rgba(231, 40, 199, 0.658), #a80d8ec2, rgba(182, 27, 125, 0.925)); */
 }
 
 .shadow-box {
   box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.35), -1px -5px 10px rgba(0, 0, 0, 0.55);
 }
 
-
-
 .cat-font {
   font-size: 50px;
   font-family: 'Times New Roman', Times, serif;
   text-decoration: none;
   color: black;
-  
-  
 }
 

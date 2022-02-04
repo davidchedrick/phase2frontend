@@ -1,7 +1,6 @@
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
 
-
 function Loading() {
 
     return(
@@ -13,10 +12,7 @@ function Loading() {
             </div>
         </Container>
     )
-
 }
-
-
 
 const LoadingDiv = styled.div `
     display: inline-block;
@@ -43,6 +39,6 @@ const LoadingDiv = styled.div `
     84% {left:-100px;}
     100% {left:0px;}
   }
-  `
+`
 
 export default Loading
