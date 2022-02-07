@@ -79,9 +79,31 @@ function App() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({"comments": newComment})
+            body: JSON.stringify(newComment)
         })
         .then(setFetchRequest(fetchRequest => !fetchRequest))
+    }
+
+    function handleUpdateCat(updatedCatCard, cat) {
+        console.log("cat id update: ", cat);
+        console.log("updatedCatCard: ", updatedCatCard);
+        // const updatedCat = cats.map(cat => {
+        //     if(cat.id === updatedCatCard.id) {
+        //         return updatedCatCard
+        //     } else {
+        //         return cat
+        //     }
+        // })
+        // setCats(updatedCat)
+        fetch(BASE_URL + `/${cat.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedCatCard)
+        })
+        .then(setFetchRequest(fetchRequest => !fetchRequest))
+
     }
 
     if(!logIn){
@@ -109,7 +131,10 @@ function App() {
                     </Route>
 
                     <Route path="/edit/:id">
-                        <Edit handleDeleteCat={handleDeleteCat} />
+                        <Edit 
+                            handleDeleteCat={handleDeleteCat} 
+                            handleUpdateCat={handleUpdateCat}
+                        />
                     </Route> 
 
                     <Route path="/add">

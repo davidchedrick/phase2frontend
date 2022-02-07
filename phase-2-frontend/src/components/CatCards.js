@@ -2,27 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import { Container, Card, Button, Row, Col, ListGroup, ButtonGroup } from "react-bootstrap";
+import { Container, Card, Button, Row, Col, ListGroup, ListGroupItem, ButtonGroup } from "react-bootstrap";
 
 import CommentBox from "./CommentBox";
-import Comments from "./Comments";
+
 
 function CatCards({ cat, handleLikedCat, handleComment }) {
     
     const [isClicked, setIsClicked] = useState(false);
     const { image, name, description, comments } = cat;
-    
-    const commentArea = comments.map(commentList => 
-        (
-            <Comments 
-                key={commentList.id} 
-                commentList={commentList}
-            /> 
-        )
-    )
 
    function handleClicked() {
-       setIsClicked(!isClicked)
+       setIsClicked(true)
    }
  
     return (
@@ -46,18 +37,20 @@ function CatCards({ cat, handleLikedCat, handleComment }) {
                                 
                                 <Card.Text>{description}</Card.Text>
                                 <hr/>
-                                <Card.Text>Comments:</Card.Text>
-                                
-                                <ListGroup >
-                                    {commentArea}
-                                </ListGroup>
+                                <Card.Text>Comment:</Card.Text>
+                                <Container>
+                                    <ListGroup >
+                                        <ListGroupItem className="d-flex justify-content-between align-items-start">
+                                            {comments} 
+                                        </ListGroupItem>
+                                    </ListGroup>
+                                </Container>
                                 <hr/>
                                 
                                 <ButtonGroup className="me-2">
-                                    <Button 
-                                        variant="dark"
-                                        onClick={() => handleClicked()}
-                                    >💬</Button>
+                                    <Button variant="dark" onClick={() => handleClicked()}>
+                                        💬
+                                    </Button>
                                     
                                 </ButtonGroup>  
                                 <ButtonGroup className="me-2"> 
@@ -67,6 +60,7 @@ function CatCards({ cat, handleLikedCat, handleComment }) {
                                 </ButtonGroup> 
                                 {isClicked ? <><hr/> 
                                     <CommentBox 
+                                        setIsClicked={setIsClicked}
                                         handleComment={handleComment} 
                                         cat={cat}
                                     /></> : null}

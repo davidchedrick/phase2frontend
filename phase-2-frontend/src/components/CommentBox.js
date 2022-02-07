@@ -1,13 +1,8 @@
 import { useState } from "react";
-import { v4 as uuid } from "uuid";
 
-function CommentBox({ cat, handleComment }) {
+function CommentBox({ cat, handleComment, setIsClicked }) {
 
-    const { comments } = cat
-    
-    const [commentData, setCommentData] = useState({
-        comments: []
-    })
+    const [commentData, setCommentData] = useState({comments: ""});
 
     function handleChange(e) {
         let targetName = e.target.name;
@@ -20,18 +15,10 @@ function CommentBox({ cat, handleComment }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        let id = uuid();
-
-        const newComment ={
-            ...commentData,
-            id
-        }
-
+        const newComment ={...commentData}
         handleComment(newComment, cat);
-
-        setCommentData({
-            comments: []
-        });
+        setCommentData("");
+        setIsClicked(false)
     }
 
     return(

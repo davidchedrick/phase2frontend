@@ -8,33 +8,35 @@ import { Container, Card, Button, Row, Col, ButtonGroup } from "react-bootstrap"
 import Loading from "./Loading.js";
 import Editer from "./Editer.js";
 
-function Edit({handleDeleteCat}) {
+function Edit({handleDeleteCat, handleUpdateCat}) {
     
     const id = useParams().id;
     const {cat, isLoaded} = useCat(id);
     const [isEdit, setIsEdit] = useState(false);
+   
     
     if (!isLoaded) return <h2><Loading /></h2>;
 
-    function editClick() {
+    function handleUpdate(updatedCatCard) {
+        handleUpdateCat(updatedCatCard)
         setIsEdit(isEdit => !isEdit)
     }
 
     return (
         
         <Container>
-            {isEdit ? <Editer cat={cat}/> : null}
+            {isEdit ? <Editer cat={cat} handleUpdate={handleUpdate} /> : null}
                 
             <Row className="justify-content-md-center" >
                 <Col xs="auto">
                     <Div>
                     <Card style={{ width: '18rem'}}>
-                        <Card.Img variant="top" src={cat.image} alt={cat.name} onClick={editClick}/>
+                        <Card.Img variant="top" src={cat.image} alt={cat.name} />
                         
                         <Card.Body className="mt-1">
-                            <Card.Title onClick={editClick}>{cat.name}</Card.Title>
+                            <Card.Title onClick={() =>  setIsEdit(isEdit => !isEdit)}>{cat.name}</Card.Title>
                             
-                            <Card.Text onClick={editClick}>{cat.description}</Card.Text>
+                            <Card.Text onClick={() =>  setIsEdit(isEdit => !isEdit)}>{cat.description}</Card.Text>
                             <hr/>
                             <Card.Text>Comments:</Card.Text>
                             

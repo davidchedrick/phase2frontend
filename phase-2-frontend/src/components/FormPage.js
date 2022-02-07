@@ -25,6 +25,7 @@ function FormPage({ cats, handleAddCat }) {
         let id = uuid();
 
         const newCat ={
+            
             ...formData,
             favorite: false,
             comments: [],
