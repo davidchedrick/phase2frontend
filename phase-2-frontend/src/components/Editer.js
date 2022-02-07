@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 function Editer({ cat, handleUpdate }) {
-    console.log("cat: in editer ", cat);
     
     const [updateData, setUpdateData] = useState({description: ""});
 
@@ -13,12 +12,9 @@ function Editer({ cat, handleUpdate }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        const newData = {
-            ...updateData
-        }
-        handleUpdate(newData, cat.id);
-        console.log("cat in submit: ", cat);
-        setUpdateData({description: cat.description});
+        const newData = {...updateData}
+        handleUpdate(newData, cat);
+        setUpdateData({description: ""});
     }
 
     return (
@@ -26,6 +22,7 @@ function Editer({ cat, handleUpdate }) {
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
+                placeholder="Update Description"
                 name="description"
                 value={updateData.description}
                 onChange={handleUpdateData}

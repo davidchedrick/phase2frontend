@@ -17,7 +17,7 @@ function CommentBox({ cat, handleComment, setIsClicked }) {
         e.preventDefault();
         const newComment ={...commentData}
         handleComment(newComment, cat);
-        setCommentData("");
+        setCommentData({comments: ""});
         setIsClicked(false)
     }
 

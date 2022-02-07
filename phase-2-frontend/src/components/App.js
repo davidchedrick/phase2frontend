@@ -86,15 +86,7 @@ function App() {
 
     function handleUpdateCat(updatedCatCard, cat) {
         console.log("cat id update: ", cat);
-        console.log("updatedCatCard: ", updatedCatCard);
-        // const updatedCat = cats.map(cat => {
-        //     if(cat.id === updatedCatCard.id) {
-        //         return updatedCatCard
-        //     } else {
-        //         return cat
-        //     }
-        // })
-        // setCats(updatedCat)
+        console.log("updatedCatCard in app: ", updatedCatCard);
         fetch(BASE_URL + `/${cat.id}`, {
             method: "PATCH",
             headers: {
@@ -103,7 +95,7 @@ function App() {
             body: JSON.stringify(updatedCatCard)
         })
         .then(setFetchRequest(fetchRequest => !fetchRequest))
-
+        history.push("/cats");
     }
 
     if(!logIn){
