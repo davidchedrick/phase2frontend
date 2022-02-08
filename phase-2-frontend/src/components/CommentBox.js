@@ -30,7 +30,6 @@ function CommentBox({ cat, handleComment, setIsClicked }) {
                 className="input"
                 onChange={handleChange}
                 value={commentData.comments}
-
             />
             <input 
                 type="submit" 

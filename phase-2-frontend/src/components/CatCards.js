@@ -13,7 +13,7 @@ function CatCards({ cat, handleLikedCat, handleComment }) {
     const { image, name, description, comments } = cat;
 
    function handleClicked() {
-       setIsClicked(true)
+       setIsClicked(isClicked => !isClicked)
    }
  
     return (
