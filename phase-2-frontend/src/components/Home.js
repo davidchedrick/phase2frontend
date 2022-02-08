@@ -31,7 +31,7 @@ function Home() {
                 <LogoTitle className="display-4 justify-content-center m-4 cat-font">
                     BodhiCat's Cutie Cats
                 </LogoTitle>
-
+                
                 <LogoImg src={ logo }  alt="BodiCat" className=' m-4'/> 
                 
                 <div className="input-group m-4 justify-content-center">
@@ -54,6 +54,7 @@ const LogoDiv = styled.div`
    box-shadow: 5px 3px 30px rgba(0, 0, 0, 0.75), -5px -3px 30px rgba(0, 0, 0, 0.75);
    background-color: #F3F3F3
 `
+
 const LogoTitle = styled.h1`
    border-radius: 360px;
    box-shadow: 5px 3px 30px rgba(0, 0, 0, 0.75), -5px -3px 30px rgba(0, 0, 0, 0.75);

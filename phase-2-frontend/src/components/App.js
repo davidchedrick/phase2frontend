@@ -16,7 +16,7 @@ function App() {
 
     const [cats, setCats] = useState([]);
     const [fetchRequest, setFetchRequest] = useState(false);
-    const [logIn, setLogIn] = useContext(LogInContext);
+    const [logIn] = useContext(LogInContext);
     const [isLoaded, setIsLoaded] = useState(false);
 
     const history = useHistory();
@@ -35,7 +35,6 @@ function App() {
               setIsLoaded(true)
               setFetchRequest(false)
             });
-            
     }
 
     function handleAddCat(newCat) {
@@ -48,7 +47,6 @@ function App() {
         })
         .then(setFetchRequest(fetchRequest => !fetchRequest));
         history.push("/cats");
-        
     }
 
     function handleLikedCat(cat) {

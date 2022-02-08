@@ -51,19 +51,21 @@ function CatCards({ cat, handleLikedCat, handleComment }) {
                                     <Button variant="dark" onClick={() => handleClicked()}>
                                         💬
                                     </Button>
-                                    
                                 </ButtonGroup>  
                                 <ButtonGroup className="me-2"> 
                                     <Button variant="dark" onClick={() => handleLikedCat(cat) } >
                                         { cat.favorite ? "❤️" : "🤍" } 
                                     </Button>
                                 </ButtonGroup> 
+
                                 {isClicked ? <><hr/> 
                                     <CommentBox 
                                         setIsClicked={setIsClicked}
                                         handleComment={handleComment} 
                                         cat={cat}
-                                    /></> : null}
+                                    />
+                                    </> : null
+                                }
                                 
                             </Card.Body>
                         </Card>

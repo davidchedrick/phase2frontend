@@ -6,18 +6,19 @@ const LogInContext = createContext();
 function UserProvider({ children }) {
     
     const [user, setUser] = useState(null);
-    const [logIn, setLogIn] = useState(false);
     const currentUser = [user, setUser]
+
+    const [logIn, setLogIn] = useState(false);
     const login = [logIn, setLogIn]
 
     return (
         <UserContext.Provider value={currentUser}>
             <LogInContext.Provider value={login}>
-            {children}
+                {children}
             </LogInContext.Provider>
         </UserContext.Provider>
     )
 
 }
 
-export {UserContext, LogInContext, UserProvider}
+export {UserContext, LogInContext, UserProvider};

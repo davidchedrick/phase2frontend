@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
+import { UserContext, LogInContext } from '../context/user';
 
 import  logo  from '../logo/tywater.png';
 
 import styled from "styled-components";
-
-import { UserContext, LogInContext } from '../context/user';
-
 
 function Header() {
 
@@ -16,21 +14,22 @@ function Header() {
     const history = useHistory();
     
     function handleLogOut() {
-        setLogIn(false)
-        setUser(null)
-        history.push('/')
+        setLogIn(false);
+        setUser(null);
+        history.push('/');
     }
+
     return(
         <>
         <UserDiv>
             {logIn ? `Welcome, ${user} ` : ""}
         </UserDiv>
         <HeaderDiv className='mb-4 h-25'>
-            <nav className="navbar navbar-light ">
+            <nav className="navbar navbar-light">
            
-                <LogoImg src={logo} alt="BodiCat" className='m-1' />
+                <LogoImg src={logo} alt="BodhiCat" className='m-1' />
                 
-                <Link to="/cats" className=" cat-font" > BodhiCat's Cutie Cats</Link>   
+                <Link to="/cats" className="cat-font" > BodhiCat's Cutie Cats</Link>   
                
                 <IconDiv>
                     <NavLink exact  to="/add">

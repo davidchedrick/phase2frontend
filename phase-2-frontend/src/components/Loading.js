@@ -28,17 +28,17 @@ const LoadingDiv = styled.div `
     animation-timing-function: linear;
   
   
-  @keyframes loading {
-    0%   {left:0px;}
-    12%  {left:100px;}
-    24%  {left:200px;}
-    36%  {left:100px;}
-    48% {left:0px;}
-    60% {left:-100px;}
-    72% {left:-200px;}
-    84% {left:-100px;}
-    100% {left:0px;}
-  }
+    @keyframes loading {
+        0%   {left:0px;}
+        12%  {left:100px;}
+        24%  {left:200px;}
+        36%  {left:100px;}
+        48% {left:0px;}
+        60% {left:-100px;}
+        72% {left:-200px;}
+        84% {left:-100px;}
+        100% {left:0px;}
+    }
 `
 
 export default Loading

@@ -43,9 +43,9 @@ function FormPage({ cats, handleAddCat }) {
     }
 
     return(
-        <div>
-            <h1>New Cat!</h1>
-            <form onSubmit={handleSubmit}>
+        <div className="pb-5 " >
+            <h1 className="m-4">New Cat!</h1>
+            <form className="m-5" onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     placeholder="Name" 
@@ -79,7 +79,7 @@ function FormPage({ cats, handleAddCat }) {
                 />
             </form>
            
-            <Container>        
+            <Container className="p-4">        
                 <Row className="justify-content-md-center" >
                     <Col xs="auto">
                         <Div>
