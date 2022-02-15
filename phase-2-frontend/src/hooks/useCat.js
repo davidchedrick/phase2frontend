@@ -6,7 +6,7 @@ function useCat(id){
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/cats/${id}`)
+        fetch(`https://json-temp.herokuapp.com/cats/${id}`)
         .then(res => res.json())
         .then(cat => {
             setCat(cat);

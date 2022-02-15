@@ -21,7 +21,7 @@ function App() {
 
     const history = useHistory();
 
-    const BASE_URL = "http://localhost:3000/cats";
+    const BASE_URL = "https://json-temp.herokuapp.com/cats";
 
     useEffect(() => {
         fetchCats();
