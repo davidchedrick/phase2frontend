@@ -3,7 +3,7 @@ import { Container, Card, Button, Row, Col, ButtonGroup } from "react-bootstrap"
 import styled from "styled-components";
 import { v4 as uuid } from "uuid";
 
-function FormPage({ cats, handleAddCat }) {
+function FormPage({ handleAddCat }) {
 
     const [formData, setFormData] = useState({
         name: "",

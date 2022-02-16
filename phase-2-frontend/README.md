@@ -14,6 +14,13 @@ You can:
 BodhiCat's Cutie Cats is a web application built with React. It is styled with Bootstrap, React-Bootstrap, and Styled-Components. 
 
 ---
+
+
+
+
+
+
+
 ## Site Layout
 
 index
