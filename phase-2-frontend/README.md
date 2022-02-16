@@ -1,5 +1,4 @@
 # BodhiCat's Cutie Cats
----
 
 https://cutiecats.netlify.app/
 
@@ -13,6 +12,23 @@ You can:
 
 ---
 BodhiCat's Cutie Cats is a web application built with React. It is styled with Bootstrap, React-Bootstrap, and Styled-Components. 
+
+---
+## Site Layout
+
+index
+|
+App
+|
+Home  
+|__Header
+|__CatArea
+|	  |__CatCard
+|			|__CommentBox
+|__Edit
+|    |__Editer
+|__FormPage	
+
 
 ---
 ## Backend
@@ -51,6 +67,12 @@ npm install --save styled-components
 ```
 npm install react-router-dom@5
 ```
+
+[uuid](https://www.npmjs.com/package/uuid)
+```
+npm install uuid
+```
+
 
 ---
 ## Cat Images

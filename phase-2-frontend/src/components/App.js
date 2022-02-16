@@ -83,8 +83,6 @@ function App() {
     }
 
     function handleUpdateCat(updatedCatCard, cat) {
-        console.log("cat id update: ", cat);
-        console.log("updatedCatCard in app: ", updatedCatCard);
         fetch(BASE_URL + `/${cat.id}`, {
             method: "PATCH",
             headers: {

@@ -36,7 +36,6 @@ function Home() {
                 
                 <div className="input-group m-4 justify-content-center">
                     <form onSubmit={handleSubmit}>
-                        
                         <input type="text"  placeholder="Username" name="username" onChange={handleChange} className='shadow-box' />
                         <input type="submit" ></input>
                     </form>
