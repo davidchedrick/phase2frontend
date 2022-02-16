@@ -21,22 +21,6 @@ BodhiCat's Cutie Cats is a web application built with React. It is styled with B
 
 
 
----
-## Site Layout
-
-index
-|
-App
-|
-Home  
-|__Header
-|__CatArea
-|	  |__CatCard
-|			|__CommentBox
-|__Edit
-|    |__Editer
-|__FormPage	
-
 
 ---
 ## Backend
