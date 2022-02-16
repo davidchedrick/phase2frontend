@@ -13,11 +13,15 @@ You can:
 ---
 BodhiCat's Cutie Cats is a web application built with React. It is styled with Bootstrap, React-Bootstrap, and Styled-Components. 
 
+<<<<<<< HEAD
 ---
+=======
+>>>>>>> 3dc870d06bd46100493ce70df46e56b8c4a5b5d5
 
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -35,6 +39,11 @@ Home
 |__Edit
 |    |__Editer
 |__FormPage	
+=======
+![BodiCatAnimation](https://user-images.githubusercontent.com/85001660/154337630-fe8a5551-e8b1-4734-b874-67e7bacb0bc5.gif)
+
+
+>>>>>>> 3dc870d06bd46100493ce70df46e56b8c4a5b5d5
 
 
 ---
