@@ -1,4 +1,4 @@
-#BodhiCat's Cutie Cats
+# BodhiCat's Cutie Cats
 ---
 
 https://cutiecats.netlify.app/
@@ -6,21 +6,31 @@ https://cutiecats.netlify.app/
 SignIn and start posting your favorite cutie cats!
 
 You can:
--Post a picture of your cutie cat with a name and description.
--Heart your favorite cutie cats.
--Leave a comment on a cutie cat.
--Edit and delete your cutie cat.
+- Post a picture of your cutie cat with a name and description.
+- Heart your favorite cutie cats.
+- Leave a comment on a cutie cat.
+- Edit and delete your cutie cat.
 
-
-##Backend
 ---
+BodhiCat's Cutie Cats is a web application built with React. It is styled with Bootstrap, React-Bootstrap, and Styled-Components. 
+
+---
+## Backend
+
 https://github.com/davidchedrick/json-temp
 Page hosted on:
 Heroku
 http://json-temp.herokuapp.com/
 
-##Dependencies
+
 ---
+## Dependencies
+
+
+[npm](https://docs.npmjs.com/cli/v8/commands/npm-install)
+```
+npm install
+```
 
 [react-bootstrap](https://react-bootstrap.github.io/getting-started/introduction/)
 ```
@@ -41,3 +51,11 @@ npm install --save styled-components
 ```
 npm install react-router-dom@5
 ```
+
+---
+## Cat Images
+
+BodhiCat cat logo is a Tyler Cat original.
+
+All other cat images used for cutie cat cat cards are from:
+[Pexels](https://www.pexels.com/search/cat/)
